@@ -19,6 +19,6 @@
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
     "start": "sirv src-cordova/www --single",
-    "start:dev": "sirv src-cordova/www --single --dev"
+    "start:dev": "sirv src-cordova/www --single --dev --host"
   }
 }
