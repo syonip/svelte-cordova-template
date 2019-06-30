@@ -32,18 +32,13 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>Hello Svelte</title>
+        <link rel='icon' type='image/png' href='/favicon.png'>
+        <link rel='stylesheet' href='/global.css'>
+        <link rel='stylesheet' href='/bundle.css'>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script src='/bundle.js'></script>
+        <script src=cordova.js></script>
     </body>
 </html>
