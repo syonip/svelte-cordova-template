@@ -19,10 +19,11 @@
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
-    "dev-android": "run-p serve:cordova autobuild cordova-run-android",
     "start": "sirv public --single",
     "start:dev": "sirv public --single --dev",
     "serve:cordova": "sirv src-cordova/www --single --dev --host",
+    "dev-android": "run-p serve:cordova autobuild cordova-run-android",
+    "build-android": "npm run build && cd src-cordova && cordova build android",
     "cordova-run-android": "cd src-cordova && cordova run android"
   }
 }
