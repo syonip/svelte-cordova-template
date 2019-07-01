@@ -6,3 +6,4 @@ public/bundle.*
 /src-cordova/platforms
 /src-cordova/plugins
 /src-cordova/www
+!/src-cordova/www/index.html
