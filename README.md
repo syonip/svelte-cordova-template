@@ -28,10 +28,12 @@ npm install
 ...then start [Rollup](https://rollupjs.org):
 
 ```bash
-npm run dev
+npm run dev-android
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+
+* Notice your device has to be connected to the same wifi network as your workstation.
 
 
 ## Deploying to the web

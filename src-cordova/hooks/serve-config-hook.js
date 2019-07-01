@@ -1,5 +1,5 @@
 const fs = require('fs')
-const production = !process.env.ROLLUP_WATCH;
+const production = process.env.CORDOVA_PROD;
 
 function info(msg) {
     console.log(msg)
