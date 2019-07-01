@@ -4,12 +4,19 @@ function info(msg) {
     console.log(msg)
 }
 
-process.env.CORDOVA_WEBVIEW_SRC = 'http://192.168.6.161:5000'
-const url = process.env.CORDOVA_WEBVIEW_SRC
-// const url = 'http://10.0.0.7:5000'
-// const cordovaConfigPath = process.env.CORDOVA_PREPARE_CONFIG
+const os = require('os');
+let networkInterfaces = os.networkInterfaces()
+let interfaces = []
+for (let int in networkInterfaces) {
+	interfaces.push(networkInterfaces[int])
+}
+
+let ip = interfaces[0].filter(x => x.family == 'IPv4').map(x => x.address)[0]
+
+const url = `http://${ip}:5000`
 const cordovaConfigPath = 'config.xml'
 if (!url || !cordovaConfigPath) {
+  console.error(`url or config path don't exist`)
   return
 }
 info(`updating ${cordovaConfigPath} content to ${url}`)
