@@ -11,8 +11,9 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <hook src="hooks/serve-config-hook.js" type="after_prepare" />
-    <content src="index.html" />
+    <hook src="hooks/serve-config-hook.js" type="before_prepare" />
+    <content src="http://192.168.6.161:5000" />
+    <allow-navigation href="http://192.168.6.161:5000" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

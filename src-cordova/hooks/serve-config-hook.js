@@ -4,8 +4,9 @@ function info(msg) {
     console.log(msg)
 }
 
-// const url = process.env.CORDOVA_WEBVIEW_SRC
-const url = 'http://10.0.0.7:5000'
+process.env.CORDOVA_WEBVIEW_SRC = 'http://192.168.6.161:5000'
+const url = process.env.CORDOVA_WEBVIEW_SRC
+// const url = 'http://10.0.0.7:5000'
 // const cordovaConfigPath = process.env.CORDOVA_PREPARE_CONFIG
 const cordovaConfigPath = 'config.xml'
 if (!url || !cordovaConfigPath) {

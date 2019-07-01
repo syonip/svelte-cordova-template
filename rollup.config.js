@@ -7,6 +7,12 @@ import { terser } from 'rollup-plugin-terser';
 const production = !process.env.ROLLUP_WATCH;
 
 const cordovaFolder = 'src-cordova';
+let publicFolder = 'public';
+if (process.env.CORDOVA_PLATFORM) {
+	publicFolder = `${cordovaFolder}/www`
+}
+
+console.log(`publicFolder is ${publicFolder}`)
 
 export default {
 	input: 'src/main.js',
@@ -14,7 +20,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: `${cordovaFolder}/www/bundle.js`
+		file: `${publicFolder}/bundle.js`
 	},
 	plugins: [
 		svelte({
@@ -23,7 +29,7 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
 			css: css => {
-				css.write(`${cordovaFolder}/www/bundle.css`);
+				css.write(`${publicFolder}/bundle.css`);
 			}
 		}),
 
@@ -37,7 +43,7 @@ export default {
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload(`${cordovaFolder}/www`),
+		!production && livereload(publicFolder),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
