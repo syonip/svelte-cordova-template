@@ -23,7 +23,8 @@
     "start:dev": "sirv public --single --dev",
     "serve:cordova": "sirv src-cordova/www --single --dev --host",
     "dev-android": "cross-env CORDOVA_PLATFORM=android run-p serve:cordova autobuild cordova-run-android",
-    "build-android": "cross-env CORDOVA_PROD=true npm run build && cd src-cordova && cordova build android",
+    "build-android": "cross-env CORDOVA_PLATFORM=android CORDOVA_PROD=true npm run build-android-subtask",
+    "build-android-subtask": "npm run build && cd src-cordova && cordova build android",
     "cordova-run-android": "cd src-cordova && cordova run android"
   }
 }
