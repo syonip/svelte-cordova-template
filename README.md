@@ -37,5 +37,5 @@ npm run dev-android
 ...To build a prod version:
 
 ```bash
-npm run dev-build
+npm run build-android
 ```
