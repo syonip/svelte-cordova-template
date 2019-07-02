@@ -9,7 +9,11 @@ const os = require('os');
 let networkInterfaces = os.networkInterfaces()
 let interfaces = []
 for (let int in networkInterfaces) {
-  interfaces.push(networkInterfaces[int])
+  let isLocalhost = networkInterfaces[int].map(x => x.address).includes('127.0.0.1')
+
+  if (!isLocalhost) {
+    interfaces.push(networkInterfaces[int])
+  }
 }
 
 let ip = interfaces[0].filter(x => x.family == 'IPv4').map(x => x.address)[0]

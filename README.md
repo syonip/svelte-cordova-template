@@ -39,3 +39,7 @@ npm run dev-android
 ```bash
 npm run build-android
 ```
+
+## IOS
+
+You need to add a `build.json` file in `src-cordova` folder with your developer id
