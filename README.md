@@ -51,6 +51,10 @@ npm run dev-ios
 
 This will run the cordova project with a web view pointing to your workstation's IP.
 
+You should see the message `Cordova deviceready fired!` if cordova loaded correctly.
+
+Try to change something in App.svelte, and you should see the content reload in your device.
+
 * You need to have an emulator/device connected to adb 
 * Your device has to be connected to the same wifi network as your workstation.
 
