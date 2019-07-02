@@ -25,6 +25,12 @@ cd svelte-cordova-app
 npm install
 ```
 
+## Run local dev server (no cordova)
+
+```bash
+npm run dev
+```
+
 ## Add your cordova platform
 
 ```bash
@@ -32,7 +38,7 @@ cd src-cordova
 cordova platform add android/ios
 ```
 
-## Serve the app in dev mode with hot reload
+## Develop on your device with hot reload
 
 Back in the root folder:
 ```bash
