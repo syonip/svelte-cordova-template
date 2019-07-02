@@ -7,3 +7,4 @@ public/bundle.*
 /src-cordova/plugins
 /src-cordova/www
 !/src-cordova/www/index.html
+src-cordova/config.xml.backup

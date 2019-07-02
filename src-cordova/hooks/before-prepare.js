@@ -21,19 +21,31 @@ if (!url || !cordovaConfigPath) {
   console.error(`url or config path don't exist`)
   return
 }
+
+fs.copyFileSync(cordovaConfigPath, `${cordovaConfigPath}.backup`)
 info(`updating ${cordovaConfigPath} content to ${url}`)
 
 let cordovaConfig = fs.readFileSync(cordovaConfigPath, 'utf-8')
 const lines = cordovaConfig.split(/\r?\n/g).reverse()
-const regexContent = /\s+<content/
-const contentIndex = lines.findIndex(line => line.match(regexContent))
 
-const allowNavigation = `    <allow-navigation href="${url}" />`
+const contentIndex = lines.findIndex(line => line.match(/\s+<content/))
+let allowNavigationIndex = lines.findIndex(line => line.match(/\s+<allow-navigation/))
 if (contentIndex >= 0) {
   lines[contentIndex] = `    <content src="${url}" />`
-  if (url && !production) {
+}
+
+let allowNavigation = `    <allow-navigation href="${url}" />`
+if (allowNavigationIndex >= 0) {
+  if (production) {
+    lines.splice(allowNavigationIndex, 1)
+  } else {
+    lines[allowNavigationIndex] = allowNavigation
+  }
+} else {
+  if (!production) {
     lines.splice(contentIndex, 0, allowNavigation)
   }
-  cordovaConfig = lines.reverse().join('\n')
-  fs.writeFileSync(cordovaConfigPath, cordovaConfig)
 }
+cordovaConfig = lines.reverse().join('\n')
+fs.writeFileSync(cordovaConfigPath, cordovaConfig)
+
