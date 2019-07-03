@@ -64,7 +64,7 @@ function generateIndexHtml(ctx) {
   const bodyIndex = lines.findIndex(line => line.match(/\s+<\/body/))
 
   let isIos = ctx.opts.platforms.includes('ios')
-  const cordovaJsLocation = isIos ? 'bundle' : 'assts';
+  const cordovaJsLocation = isIos ? 'bundle' : 'assets';
   let cordovaJsScript = `        <script src="cdvfile://localhost/${cordovaJsLocation}/www/cordova.js"></script>`
 
   if (bodyIndex >= 0) {
