@@ -6,5 +6,5 @@ public/bundle.*
 /src-cordova/platforms
 /src-cordova/plugins
 /src-cordova/www
-!/src-cordova/www/index.html
+!/src-cordova/www/README.md
 src-cordova/config.xml.backup
