@@ -58,7 +58,7 @@ function updateConfigUrl(cordovaConfigPath, url) {
 }
 
 function generateIndexHtml(ctx) {
-  let htmlContent = fs.readFileSync('../public/index.html', 'utf-8')
+  let htmlContent = fs.readFileSync(`${publicFolder}/index.html`, 'utf-8')
   const lines = htmlContent.split(/\r?\n/g).reverse()
 
   const bodyIndex = lines.findIndex(line => line.match(/\s+<\/body/))
@@ -76,10 +76,39 @@ function generateIndexHtml(ctx) {
   fs.writeFileSync('www/index.html', htmlContent)
 }
 
-module.exports = function(ctx) {
-  const ip = getIP();
-  const url = production ? 'index.html' : `http://${ip}:5000`
+function clearWWW() {
 
+  fs.readdirSync('www').forEach(file => {
+    if (file == 'README.md') return;
+    if (svelteFiles.includes(file)) return;
+
+    console.log(`removing ${file}`)
+    fs.unlinkSync(`www/${file}`)
+  })
+}
+
+function copyPublicFiles() {
+
+  fs.readdirSync(publicFolder).forEach(file => {
+    if (svelteFiles.includes(file)) return;
+
+    console.log(`copying ${file} to src-cordova/www folder`)
+    fs.copyFileSync(`${publicFolder}/${file}`, `www/${file}`)
+  });
+}
+
+const publicFolder = '../public'
+const ip = getIP();
+const url = production ? 'index.html' : `http://${ip}:5000`
+let svelteFiles = [
+  'index.html',
+  'bundle.js',
+  'bundle.js.map',
+  'bundle.css',
+  'bundle.css.map'
+]
+
+function runHook(ctx) {
   const cordovaConfigPath = 'config.xml'
   if (!url || !cordovaConfigPath) {
     console.error(`url or config path don't exist`)
@@ -88,5 +117,9 @@ module.exports = function(ctx) {
 
   updateConfigUrl(cordovaConfigPath, url)
 
+  clearWWW()
+  copyPublicFiles()
   generateIndexHtml(ctx)
 }
+
+module.exports = runHook
