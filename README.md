@@ -1,8 +1,5 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
----
-
-# svelte app
+# Svelte Cordova template
 
 This is a project template for [Svelte](https://svelte.dev) apps running inside cordova apps. It lives at https://github.com/syonip/svelte-cordova.
 
@@ -10,7 +7,6 @@ To create a new project based on this template using [degit](https://github.com/
 
 ```bash
 npx degit syonip/svelte-cordova svelte-cordova-app
-cd svelte-cordova-app
 ```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
