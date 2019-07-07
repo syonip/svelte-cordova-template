@@ -3,7 +3,7 @@ if (!process.env.CORDOVA_PLATFORM) {
   return;
 }
 
-const fs = require('fs')
+const fs = require('fs-extra')
 const production = process.env.CORDOVA_PROD;
 
 function info(msg) {
@@ -83,7 +83,7 @@ function clearWWW() {
     if (svelteFiles.includes(file)) return;
 
     console.log(`removing ${file}`)
-    fs.unlinkSync(`www/${file}`)
+    fs.removeSync(`www/${file}`)
   })
 }
 
@@ -93,7 +93,7 @@ function copyPublicFiles() {
     if (svelteFiles.includes(file)) return;
 
     console.log(`copying ${file} to src-cordova/www folder`)
-    fs.copyFileSync(`${publicFolder}/${file}`, `www/${file}`)
+    fs.copySync(`${publicFolder}/${file}`, `www/${file}`)
   });
 }
 
