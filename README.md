@@ -1,12 +1,12 @@
 
 # Svelte Cordova template
 
-This is a project template for [Svelte](https://svelte.dev) apps running inside cordova apps. It lives at https://github.com/syonip/svelte-cordova.
+This is a project template for [Svelte](https://svelte.dev) apps running inside cordova apps. It lives at https://github.com/syonip/svelte-cordova-template.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit syonip/svelte-cordova svelte-cordova-app
+npx degit syonip/svelte-cordova-template svelte-cordova-app
 ```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
