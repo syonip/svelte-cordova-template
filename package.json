@@ -25,10 +25,12 @@
     "start:dev": "sirv public --single --dev",
     "serve:cordova": "sirv src-cordova/www --single --dev --host",
     "dev-android": "cross-env CORDOVA_PLATFORM=android run-p serve:cordova autobuild cordova-run-android",
+    "bundle-android": "cross-env CORDOVA_PLATFORM=android CORDOVA_PROD=true npm run build",
     "build-android": "cross-env CORDOVA_PLATFORM=android CORDOVA_PROD=true npm run build-android-subtask",
     "build-android-subtask": "npm run build && cd src-cordova && cordova build android",
     "cordova-run-android": "cd src-cordova && cordova run android",
     "dev-ios": "cross-env CORDOVA_PLATFORM=ios run-p serve:cordova autobuild cordova-run-ios",
+    "bundle-ios": "cross-env CORDOVA_PLATFORM=ios CORDOVA_PROD=true npm run build",
     "build-ios": "cross-env CORDOVA_PLATFORM=ios CORDOVA_PROD=true npm run build-ios-subtask",
     "build-ios-subtask": "npm run build && cd src-cordova && cordova build ios",
     "cordova-run-ios": "cd src-cordova && cordova run ios"

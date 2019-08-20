@@ -64,6 +64,15 @@ or
 npm run build-ios
 ```
 
+## To build the svelte bundle into the src-cordova folder, without actually building the native project
+```bash
+npm run bundle-android
+```
+or
+```bash
+npm run bundle-ios
+```
+
 ## IOS quirks
 
 You need to add a `build.json` file in `src-cordova` folder with your developer id. More info at [cordova docs](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/)
